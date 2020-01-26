@@ -4,12 +4,12 @@
 
 ```java
 Either.right(1); //Either<Object, Integer>
-Either.<String, Integer>.right(1); // Either<String, Integer>
+Either.<String, Integer>right(1); // Either<String, Integer>
 ```
 
 ```java
 Either.left("ERROR"); // Either<String, Object>
-Either.<String, Integer>.left("ERROR"); // Either<String, Integer>
+Either.<String, Integer>left("ERROR"); // Either<String, Integer>
 ```
 
 ## trying
