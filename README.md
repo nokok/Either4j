@@ -35,6 +35,18 @@ Either.right(1).map(i -> i + 1); // Either.Right(2)
 Either.left("Hello").leftMap(s -> s + " Error"); // Either.Left(Hello Error)
 ```
 
+## match
+
+```java
+Integer a = Either
+            .trying(() -> Integer.parseInt("a"))
+            .match(
+                    i -> i + 2, // Right
+                    e -> 2 // Left
+            );
+
+```
+
 ## getRight/getLeft
 
 ```java
