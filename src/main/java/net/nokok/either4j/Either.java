@@ -70,6 +70,14 @@ public interface Either<L, R> {
         }
     }
 
+    default <RR extends R> Either<L, RR> flatMap(Function<R, Either<L, RR>> f) {
+        if (this.isRight()) {
+            return f.apply(this.getRight());
+        } else {
+            return Either.left(this.getLeft());
+        }
+    }
+
     default <LL> Either<LL, R> leftMap(Function<L, LL> f) {
         if (this.isLeft()) {
             return Either.left(f.apply(this.getLeft()));
