@@ -121,6 +121,19 @@ public interface Either<L, R> {
         public String toString() {
             return "Either.Left(" + value + ")";
         }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Left<?, ?> left = (Left<?, ?>) o;
+            return value.equals(left.value);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(value);
+        }
     }
 
     public static class Right<L, R> implements Either<L, R> {
@@ -149,6 +162,19 @@ public interface Either<L, R> {
         @Override
         public String toString() {
             return "Either.Right(" + value + ")";
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Right<?, ?> right = (Right<?, ?>) o;
+            return value.equals(right.value);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(value);
         }
     }
 }
